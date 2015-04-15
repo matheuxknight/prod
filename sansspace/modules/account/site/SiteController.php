@@ -60,6 +60,10 @@ class SiteController extends CommonController
 			$this->render('login');
 	}
 
+	public function actionAdmin(){
+		$this->render('admin');
+	}
+
 	public function actionMobileInit()
 	{
 		$this->identity->logout();
@@ -248,7 +252,7 @@ class SiteController extends CommonController
 					'Contact Us Form Received', 
 					"<img src='http://learningsite.waysidepublishing.com/contents/17894.png' alt='logo'  class='alignnone size-full wp-image-533'><br><br>
 					<div style='margin-left:3%; height:100%; font-size:16px; color:#555555; line-height:1.1em; font-family:Gotham, 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif''><p><div style='font-size:34px; color:#007ABB; font-weight:500; font-family:Gotham, 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif''>Hi $user->name,</div>
-					<br>We�ve received your email and will respond as soon as possible. Fastest response time is from 8:30 a.m. - 4:30 p.m. EST Monday through Friday.<br>
+					<br>We've received your email and will respond as soon as possible. Fastest response time is from 8:30 a.m. - 4:30 p.m. EST Monday through Friday.<br>
 					<p>Sincerely,<br>
 					Wayside Publishing Support</p>
 					<div style='height:70px'>

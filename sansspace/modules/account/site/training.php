@@ -2,7 +2,7 @@
 require_once('training.js');
 $user = getUser();
 $ch = curl_init("https://waysidepublishing.atlassian.net/wiki/display/LSD/Learning+Site+FAQ+-+Customer+View");
-$fp = fopen("../../../temp/training.txt", "w");
+$fp = fopen("../temp/training.txt", "w");
 
 curl_setopt($ch, CURLOPT_FILE, $fp);
 curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -11,7 +11,7 @@ curl_exec($ch);
 curl_close($ch);
 fclose($fp);
 
-$fp = fopen("../../../temp/training.txt", "r");
+$fp = fopen("../temp/training.txt", "r");
 while(!feof($fp)){
     $line = fgets($fp);
     if(strpos($line,'<div id="faqcontent">') !== false){$faq = $line;}
@@ -65,8 +65,8 @@ footer{min-width:1060px;}
 						
 						<li id='navigatelink2' class='listItem topiclistblur' description='The Assessing Student Performance and Grades webinar conducted on January 14, 2015, offers an in-depth look at how to assess survey and discussion forum participation, as well as how to grade all quiz types.' data='http://learningsite.waysidepublishing.com/file/embed?id=50633' onclick='setListItem(this)'>Student Performance and Grades</li>
 						
-						<li id='navigatelink3' class='listItem topiclistblur' description='The Classroom Forum webinar provides insight as to what is and who your class might be able to use the Classroom Forum. This area can be used for group discussions, providing external context, assigning work, etc.' data='/file/embed?id=43368' onclick='setListItem(this)'>
-						Classroom Forum</li>
+						<!--<li id='navigatelink3' class='listItem topiclistblur' description='The Classroom Forum webinar provides insight as to what is and who your class might be able to use the Classroom Forum. This area can be used for group discussions, providing external context, assigning work, etc.' data='http://learningsite.waysidepublishing.com/file/embed?id=43368' onclick='setListItem(this)'>
+						Classroom Forum</li>-->
 						
 						<li id='navigatelink4' class='listItem topiclistblur' description='The Learning Site Activities webinar conducted on January 28, 2015 offers an in-depth look at how students and teachers can navigate through all quiz types, flashcards, surveys, discussion forums, and PDF forms.' data='http://learningsite.waysidepublishing.com/file/embed?id=52473' onclick='setListItem(this)'>Learning Site Activities</li>
 						
