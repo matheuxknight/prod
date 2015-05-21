@@ -36,7 +36,9 @@ end;
 	echo userImage($user, 100);
 	echo "</a>";
 	echo "</div>";
-
+	if($user->id == 8304){
+		echo "<h2 align='center' style='color:red'>Please click course name below to access testing area</h2>";
+	}
 	if(controller()->rbac->globalAdmin())
 	{
 		echo "
@@ -72,7 +74,7 @@ end;
 					</a>
 				</h4>";
 		
-		if(controller()->rbac->globalTeacher())
+		if(controller()->rbac->globalTeacher() && $user->id != 8304)
 			echo "
 				<h4 align='right' class='error popup-text-header'>
 					<a href='/textbook/addteachercourse' class='course-reg-link' >

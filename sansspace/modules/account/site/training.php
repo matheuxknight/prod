@@ -49,14 +49,17 @@ footer{min-width:1060px;}
 					
 						<li id='generallink1' class='listItem topiclistactive' description='The Signing Up for an Account video offers an in-depth look on how to create a Learning Site account as both a student and then as a teacher. The video covers this process by using the Account Registration form.' data='http://learningsite.waysidepublishing.com/file/embed?id=18087' onclick='setListItem(this)' name='first'>
 						Signing Up for an Account</li>
+
+						<li id='generallink2' class='listItem topiclistblur' description='' data='http://learningsite.waysidepublishing.com/file/embed?id=65442' onclick='setListItem(this)'>
+						Signing Up for an Account - Teacher</li>
 						
-						<li id='generallink2' class='listItem topiclistblur' description='The Creating My Course video offers an in-depth look at how a teacher is able to create their own course on the Learning Site.' data='http://learningsite.waysidepublishing.com/file/embed?id=18088' onclick='setListItem(this)'>
+						<li id='generallink3' class='listItem topiclistblur' description='The Creating My Course video offers an in-depth look at how a teacher is able to create their own course on the Learning Site.' data='http://learningsite.waysidepublishing.com/file/embed?id=18088' onclick='setListItem(this)'>
 						Creating My Course</li>
 						
-						<li id='generallink3' class='listItem topiclistblur' description='The Enrolling in My Course video offers an in-depth look on how students are able to enroll within their teacher's course once it has been created by their instructor, first.' data='http://learningsite.waysidepublishing.com/file/embed?id=18089' onclick='setListItem(this)'>
+						<li id='generallink4' class='listItem topiclistblur' description='The Enrolling in My Course video offers an in-depth look on how students are able to enroll within their teacher's course once it has been created by their instructor, first.' data='http://learningsite.waysidepublishing.com/file/embed?id=18089' onclick='setListItem(this)'>
 						Enrolling in My Course</li>
 						
-						<li id='generallink4' class='listItem topiclistblur' description='The Navigating the Learning Site video takes a look at the main My Learning Site page upon login and how to navigate and utilize the various options from within.' data='http://learningsite.waysidepublishing.com/file/embed?id=42905' onclick='setListItem(this)'>
+						<li id='generallink5' class='listItem topiclistblur' description='The Navigating the Learning Site video takes a look at the main My Learning Site page upon login and how to navigate and utilize the various options from within.' data='http://learningsite.waysidepublishing.com/file/embed?id=42905' onclick='setListItem(this)'>
 						Navigating the Learning Site</li>
 					</ul>
 					<ul id='navigatelist' class='topiclist hiddenlist'>
@@ -81,7 +84,7 @@ footer{min-width:1060px;}
 						<li id='tejidoslink1' class='listItem topiclistblur' description='The Tejidos webinar conducted on September 29, 2014, offers an in-depth look at the Tejidos Student Edition, Teacher Edition, Learning Site materials and navigation, and the integration of all three components of the program.' data='http://learningsite.waysidepublishing.com/file/embed?id=47727' onclick='setListItem(this)'>
 						Tejidos Webinar</li>
 						
-						<li id='azulejolink1' class='listItem topiclistblur' description='The Azuljo webinar conducted on September 29, 2014, offers an in-depth look at the Azulejo Student Edition, Teacher Edition, Learning Site materials and navigation, and the integration of all three components of the program.' data='http://learningsite.waysidepublishing.com/file/embed?id=47750' onclick='setListItem(this)'>
+						<li id='azulejolink1' class='listItem topiclistblur' description='The Azulejo webinar conducted on September 29, 2014, offers an in-depth look at the Azulejo Student Edition, Teacher Edition, Learning Site materials and navigation, and the integration of all three components of the program.' data='http://learningsite.waysidepublishing.com/file/embed?id=47750' onclick='setListItem(this)'>
 						Azulejo Webinar</li>
 						
 						<li id='neuelink1' class='listItem topiclistblur' description='The Neue Blickwinkel webinar conducted on September 29, 2014, offers an in-depth look at the Neue Blickwinkel Student Edition, Teacher Edition, Learning Site materials and navigation, and the integration of all three components of the program.' data='http://learningsite.waysidepublishing.com/file/embed?id=47755' onclick='setListItem(this)'>
