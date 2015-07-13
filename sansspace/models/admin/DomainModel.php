@@ -1,6 +1,6 @@
 <?php
 
-require_once('/extensions/cas/CAS.php');
+require_once('extensions/cas/CAS.php');
 
 class Domain extends CActiveRecord
 {

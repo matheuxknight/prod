@@ -1,6 +1,7 @@
 <?php
 
 require_once('extensions/ffmpeg/phpvideotoolkit.php5.php');
+require_once('sansspace/core/common/system.php');
 
 function scanObjectBackground($object, $all=false)
 {
@@ -133,7 +134,7 @@ function scanFileInternal($file)
 			$data = file_get_contents($filename);
 			
 			$data = preg_replace('/<(.)+>/', '', $data);
-			$data = preg_replace('/’/', "'", $data);
+			$data = preg_replace('/ï¿½/', "'", $data);
 
 			file_put_contents($filename, $data);
 			$file->filetype = CMDB_FILETYPE_SRT;

@@ -44,7 +44,7 @@ end;
 				<a href='/textbook/addstudentcode' class='course-reg-link' >
 					<font class='course-reg-font'>Enroll in my course</font>
 				</a>
-				<a class='popup' title='Enroll in my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://reviewlearningsite.waysidepublishing.com/file/embed?id=18089'>
+				<a class='popup' title='Enroll in my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://learningsite.waysidepublishing.com/file/embed?id=18089'>
 					<em class='fa fa-question-circle popup-question'></em>
 				</a>
 			</h4>
@@ -52,7 +52,7 @@ end;
 				<a href='/textbook/addteachercourse' class='course-reg-link'>
 					<font class='course-reg-font'>Create my course</font>
 				</a>
-				<a class='popup'   title='Create my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://reviewlearningsite.waysidepublishing.com/file/embed?id=18088'>
+				<a class='popup'   title='Create my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://learningsite.waysidepublishing.com/file/embed?id=18088'>
 					<em class='fa fa-question-circle popup-question'></em>
 				</a>
 			</h4>
@@ -67,6 +67,9 @@ end;
 					<a href='/textbook/addstudentcode' class='course-reg-link' >
 						<font class='course-reg-font' >Enroll in my course</font>
 					</a>
+					<a class='popup' title='Enroll in my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://learningsite.waysidepublishing.com/file/embed?id=18089' >
+						<em class='fa fa-question-circle popup-question'></em>
+					</a>
 				</h4>";
 		
 		if(controller()->rbac->globalTeacher())
@@ -75,7 +78,7 @@ end;
 					<a href='/textbook/addteachercourse' class='course-reg-link' >
 						<font class='course-reg-font'>Create my course</font>
 					</a>	
-					<a class='popup' title='Create my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://reviewlearningsite.waysidepublishing.com/file/embed?id=18088'>
+					<a class='popup' title='Create my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://learningsite.waysidepublishing.com/file/embed?id=18088'>
 						<em class='fa fa-question-circle popup-question'></em>
 					</a>
 				</h4>";

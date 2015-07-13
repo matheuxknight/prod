@@ -1,7 +1,7 @@
 <?php
 
-include_once('/extensions/phpmailer/class.phpmailer.php');
-include_once('/extensions/phpmailer/class.smtp.php');
+include_once('extensions/phpmailer/class.phpmailer.php');
+include_once('extensions/phpmailer/class.smtp.php');
 
 function mailex($name, $from, $to, $subject, $body)
 {
