@@ -8,7 +8,6 @@ echo <<<end
 
   ga('create', 'UA-63010031-1', 'auto');
   ga('send', 'pageview');
-
 </script>
 end;
 	

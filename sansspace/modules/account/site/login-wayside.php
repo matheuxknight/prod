@@ -90,6 +90,7 @@ echo "<p>";
 echo "<a class='password-reset' href='/site/forgot'>Forgot your username or password?</a>";
 echo "</p></div></div></div></div><p>";
 //echo "Looking for the Legacy Learning Site? <a href='http://legacylearningsite.waysidepublishing.com'>Click here.</a><br>";
+echo "Just looking for a sample of the Learning Site? <a class='password-reset' href='http://samplelearningsite.waysidepublishing.com'>Click here.</a><br />";
 echo "<a href='mailto:support@waysidepublishing.com'><em class='fa fa-question-circle'></em></a> Need help? Contact us at";
 echo "<a href='mailto:support@waysidepublishing.com'> support@waysidepublishing.com</a></p>";
 echo "</main>";

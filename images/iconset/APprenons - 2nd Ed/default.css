@@ -10,7 +10,7 @@
 
 .ui-widget-header
 {
-	background: #dbb103;
+	background: #593957;
 	border: 0px;
 	color: #ffffff;
 }
@@ -19,8 +19,8 @@
 .ui-widget-content .ui-state-default, 
 .ui-widget-header .ui-state-default
 {
-	background: #dbb103;
-	border: 1px solid #dbb103;
+	background: #593957;
+	border: 1px solid #593957;
 	color: #ffffff;
 }
 
@@ -36,7 +36,7 @@
 .ui-widget-header .ui-state-active
 {
 	background: white;
-	color: #dbb103;
+	color: #593957;
 }
 
 .ui-state-hover,
@@ -44,21 +44,21 @@
 .ui-widget-header .ui-state-hover
 {
 	background: white;
-	color: #dbb103;
+	color: #593957;
 }
 
 .ui-state-hover a,
 .ui-state-hover a:link,
 .ui-state-hover a:visited
 {
-	color: #dbb103;
+	color: #593957;
 }
 
 .ui-state-active a,
 .ui-state-active a:link,
 .ui-state-active a:visited
 {
-	color: #dbb103;
+	color: #593957;
 }
 
 html, body
@@ -73,6 +73,29 @@ a
  
 footer
 {
-	background: #dbb103;
-	color: #ffffff;
+	background: #593957;
+	color: #875B8A;
+	}
+
+ footer a {
+    color: #875B8A;
+    text-decoration: underline;
+    -moz-text-decoration-style: dotted;
+    -webkit-text-decoration-style: dotted; }
+    footer a:hover, footer a:active, footer a:focus, footer a:visited {
+      color: #875B8A;
+      text-decoration: underline;
+      -moz-text-decoration-style: dotted;
+      -webkit-text-decoration-style: dotted; }
+	
+#searchdiv .ui-button-text {
+	color: #292929;
+	background-color: #FFCE00;
+}
+#searchdiv label{
+	border: 1px solid #FFCE00;
+}
+
+#contactlink{
+	color: #B08DAB;
 }

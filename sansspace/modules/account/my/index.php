@@ -36,9 +36,7 @@ end;
 	echo userImage($user, 100);
 	echo "</a>";
 	echo "</div>";
-	if($user->id == 8304){
-		echo "<h2 align='center' style='color:red'>Please click course name below to access testing area</h2>";
-	}
+
 	if(controller()->rbac->globalAdmin())
 	{
 		echo "
@@ -46,7 +44,7 @@ end;
 				<a href='/textbook/addstudentcode' class='course-reg-link' >
 					<font class='course-reg-font'>Enroll in my course</font>
 				</a>
-				<a class='popup' title='Enroll in my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://learningsite.waysidepublishing.com/file/embed?id=18089'>
+				<a class='popup' title='Enroll in my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://reviewlearningsite.waysidepublishing.com/file/embed?id=18089'>
 					<em class='fa fa-question-circle popup-question'></em>
 				</a>
 			</h4>
@@ -54,7 +52,7 @@ end;
 				<a href='/textbook/addteachercourse' class='course-reg-link'>
 					<font class='course-reg-font'>Create my course</font>
 				</a>
-				<a class='popup'   title='Create my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://learningsite.waysidepublishing.com/file/embed?id=18088'>
+				<a class='popup'   title='Create my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://reviewlearningsite.waysidepublishing.com/file/embed?id=18088'>
 					<em class='fa fa-question-circle popup-question'></em>
 				</a>
 			</h4>
@@ -69,18 +67,15 @@ end;
 					<a href='/textbook/addstudentcode' class='course-reg-link' >
 						<font class='course-reg-font' >Enroll in my course</font>
 					</a>
-					<a class='popup' title='Enroll in my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://learningsite.waysidepublishing.com/file/embed?id=18089' >
-						<em class='fa fa-question-circle popup-question'></em>
-					</a>
 				</h4>";
 		
-		if(controller()->rbac->globalTeacher() && $user->id != 8304)
+		if(controller()->rbac->globalTeacher())
 			echo "
 				<h4 align='right' class='error popup-text-header'>
 					<a href='/textbook/addteachercourse' class='course-reg-link' >
 						<font class='course-reg-font'>Create my course</font>
 					</a>	
-					<a class='popup' title='Create my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://learningsite.waysidepublishing.com/file/embed?id=18088'>
+					<a class='popup' title='Create my course' href='javascript:void(0)' onclick='showVideo(this)' data='http://reviewlearningsite.waysidepublishing.com/file/embed?id=18088'>
 						<em class='fa fa-question-circle popup-question'></em>
 					</a>
 				</h4>";
@@ -104,10 +99,21 @@ end;
 	$objects = objectList('mycourses');
 	$coursecount = 1;
 	foreach($objects as $n=>$object){
-		if($coursecount <= 6)
-		echo '<li>'.l($object->name, array('object/show', 'id'=>$object->id), array('style'=>'color: white')).'</li>';
-		else if($coursecount == 7)
-		echo "<a href='/my/courses' style='color:white'><li style='color:white'>(Click to View More Courses)</li></a>";
+		$expired = false;
+		if($object->usedate){
+			$startArr = explode("-", $object->startdate);
+			$endArr = explode("-", $object->enddate);
+	
+			$startInt = mktime(0, 0, 0, $startArr[1], $startArr[2], $startArr[0]);
+			$endInt = mktime(23, 59, 59, $endArr[1], $endArr[2], $endArr[0]);
+			if(time() > $endInt){
+				$expired = true;}
+		}
+		if($coursecount <= 6 && !$expired){
+			echo '<li>'.l($object->name, array('object/show', 'id'=>$object->id), array('style'=>'color: white')).'</li>';
+		}
+		if($coursecount == 7)
+			echo "<a href='/my/courses' style='color:white'><li style='color:white'>(Click to View More Courses)</li></a>";
 		$coursecount++;
 	}
 	echo <<<end

@@ -61,3 +61,29 @@ function getWeekdaystring($user){
 		weekdaySet($x,$user);
 		return $weekdaystring;
 	}
+function getDaystring($day){
+		switch($day){
+			case "Mon":
+				$string = "Tue";
+				break;	
+			case "Tue":
+				$string = "Wed";
+				break;
+			case "Wed":
+				$string = "Thurs";
+				break;
+			case "Thurs":
+				$string = "Fri";
+				break;
+			case "Fri":
+				$string = "Sat";
+				break;
+			case "Sat":
+				$string = "Sun";
+				break;
+			case "Sun":
+				$string = "Mon";
+				break;
+		}
+		return $string;
+	}

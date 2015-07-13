@@ -49,14 +49,25 @@ else if($course->usedate)
 	 	echo "<tr><td>Starting:</td><td>$course->startdate</td></tr>";
 	
 	if(time() > $endInt)
-		echo "<tr><td>Expired since:</td><td><b>$course->enddate</b></td></tr>";
+		echo "<tr><td>Expired since: </td><td><b>$course->enddate</b></td></tr>";
+	else if(($endInt - time()) < 2500000){
+		echo "<tr><td><b>Expiring on: </b></td><td><b>$course->enddate</b></td></tr>";
+	}
 }
 
 echo "</table>";
 
-echo processDoctext($course, $course->ext->doctext);
-showFolderContents($course->id);
-
+if($course->usedate){
+	if(time() < $endInt){
+		echo processDoctext($course, $course->ext->doctext);
+		showFolderContents($course->id);}
+	else{
+		echo "<h3 align='center'>Uh oh! It looks like your course has expired.</h3>";}
+}
+else{
+	echo processDoctext($course, $course->ext->doctext);
+	showFolderContents($course->id);
+}
 // if($course->usedate)
 // {
 // 	echo "<div id='toto'></div>";

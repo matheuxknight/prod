@@ -20,6 +20,9 @@ class AdminController extends CommonController
 	{
 		$this->render('index');
 	}
+	public function actionAltQuestions(){
+		$this->render('altquestions');
+	}
 
 	public function actionDebug()
 	{
