@@ -1140,7 +1140,7 @@ elRTE = function(target, opts) {
 		content = this.target.hide().html();
 	}
 	this.source.attr('name', this.target.attr('name')||this.target.attr('id'));
-	content = $.trim(content);
+	//content = $.trim(content);
 	if (!content) {
 		content = ' ';
 	}

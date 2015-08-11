@@ -3,7 +3,6 @@ require_once('training.js');
 $user = getUser();
 $ch = curl_init("https://waysidepublishing.atlassian.net/wiki/display/LSD/Learning+Site+FAQ+-+Customer+View");
 $fp = fopen("../temp/training.txt", "w");
-
 curl_setopt($ch, CURLOPT_FILE, $fp);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -14,7 +13,7 @@ fclose($fp);
 $fp = fopen("../temp/training.txt", "r");
 while(!feof($fp)){
     $line = fgets($fp);
-    if(strpos($line,'<div id="faqcontent">') !== false){$faq = $line;}
+    if(strpos($line,'<div id="faqcontent"') !== false){$faq = $line;}
 }
 fclose($fp);
 

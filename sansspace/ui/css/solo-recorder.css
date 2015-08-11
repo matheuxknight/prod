@@ -1,0 +1,113 @@
+		#commentblock{
+			display:none;
+		}
+		#content table{
+			background-color:rgb(230, 230, 230);
+			margin-bottom:50px;
+		}
+		#form-holder{
+			margin-top:100px;
+			position:relative;
+			padding: 0 10px;
+		}
+		
+		#form-holder h3{
+			margin-top:0;
+			margin-bottom:20px;
+			color: #6450cb;
+			font-size: 32px;
+		}
+		.header-right{
+		  position: absolute;
+		  top: -74px;
+		  right: 0;
+		}
+		.header-right button {
+		  font-size: 16px;
+		  width: 193px;
+		  height: 53px;
+		  line-height: 45px;
+		  border: 3px solid;
+		  box-sizing: border-box;
+		  text-transform: uppercase;
+		  text-align: center;
+		  letter-spacing: 2px;
+		  float: right;
+		  padding: 0;
+		  cursor: pointer;
+		}
+		.header-right button i {
+		  font-size: 1.2em;
+		}
+		.header-right button[data-role='attempt-cancel'] {
+		  border-color: #f24444;
+		  color: #f24444;
+		  background: transparent;
+		  margin-right: 25px;
+		}
+		@media only screen and (max-width: 780px) {
+		  .header-right button[data-role='attempt-cancel'] {
+			font-size: 0;
+			line-height: 58px;
+			margin-right: 5px;
+			padding-right: 17px;
+		  }
+		  .header-right button[data-role='attempt-cancel'] i {
+			font-size: 19.2px;
+		  }
+		}
+		.header-right button[data-role='attempt-submit'] {
+		  border-color: #67b528;
+		  color: #fff;
+		  background: #67b528;
+		}
+		#recorderForm{
+			margin:50px auto;
+			padding:50px;
+			background-color:#fff;
+			width:100%;
+			font-family: 'Nunito', sans-serif;
+			max-width: 1000px;
+			display: block;
+			position: relative;
+			height: auto;
+			bottom: 0;
+			top: 0;
+			left: 0;
+			right: 0;
+		}	
+		[data-role='question-reply']{
+			text-align:center;
+			margin-top:50px;
+		}
+		.col-sm-12{
+			margin-left:5px;
+			margin-right:5px;
+		}
+		[data-role='audio-record-control'] {
+		  padding: 7px 15px;
+		  font-size: 16px;
+		  border: 2px solid;
+		  margin: 0;
+		  letter-spacing: 1px;
+		  font-weight: 300;
+		}
+		[data-role='audio-record-control'] i {
+		  font-size: 1.125em;
+		}
+		[data-role='audio-record-control'][disabled] {
+		  display: none;
+		}
+		[data-role='audio-record-control'][data-control-type='start'] {
+		  background: #6450cb;
+		  border-color: #6450cb;
+		  color: #fff;
+		}
+		[data-role='audio-record-control'][data-control-type='stop'] {
+		  border-color: #f24444;
+		  color: #f24444;
+		  background: #fff;
+		}
+		[data-role='preview-container']{
+		 margin:10px;
+		}

@@ -188,70 +188,117 @@ class RecorderController extends CommonController
 	public function actionInternalSave()
 	{
 //		debuglog(__METHOD__);
-		$phpsessid = session_id();
-		$user = getUser();
-		$session = getdbosql('Session', "phpsessid='$phpsessid'");
 
-		$masterid = getparam('masterid');
-		$parentid = getparam('parentid');
+			//$parent = userRecordingFolder($object, $user, $courseid);
+			//echo $parent;
+                        //if (!$parent) return;
+					if ($_FILES['record']) {
+						echo "contains recording";
+                        $object = new Object;
+                        $object->type = CMDB_OBJECTTYPE_FILE;
+                        $object->name = $_POST['name'];
+						$object->doctext = $_POST['description'];
+
+                        $object = objectInit($object, $_POST['parentid']);
+                        if (!$object) return;
+
+                        $object->pathname = "{$object->id}.wav";
+                        $object->save();
+
+                        $rfile = new File;
+                        $rfile->objectid = $object->id;
+                        $rfile->originalid = $question->fileid;
+                        $rfile->filetype = CMDB_FILETYPE_MEDIA;
+                        $rfile->mimetype = 'audio/x-wav';
+                        $rfile->hasaudio = 1;
+                        $rfile->save();
+						
+						$file = getdbo('VFile', $object->id);
+						$filename = objectPathname($file);
+
+						$filename = str_replace(array('\\', '/'), DIRECTORY_SEPARATOR, $filename);
+
+						@unlink($filename);
+
+						//	debuglog("rename($inname, $filename)");
+						move_uploaded_file($_FILES['record']['tmp_name'], $filename);
+
+						scanFile($file);
+					}
+					//	$file = getdbo('VFile', $object->id);
+                    //	$filename = objectPathname($file);
+
+                    //	$filename = str_replace(array('\\', '/'), DIRECTORY_SEPARATOR, $filename);
+
+                    //	@unlink($filename);
+
+                    //	move_uploaded_file($_FILES['record']['tmp_name'], $filename);
+
+                    //	scanFile($file);
+
+		//$phpsessid = session_id();
+		//$user = getUser();
+		//$session = getdbosql('Session', "phpsessid='$phpsessid'");
+
+		//$masterid = getparam('masterid');
+		//$parentid = getparam('parentid');
 		
-		if(param('keepfileextension'))
-			$name = str_replace('.flv', '', getparam('name')).'.flv';
-		else
-			$name = str_replace('.flv', '', getparam('name'));
+		//if(param('keepfileextension'))
+		//	$name = str_replace('.flv', '', getparam('name')).'.flv';
+		//else
+		//	$name = str_replace('.flv', '', getparam('name'));
 		
-		if(!$parentid)
-			$parentid = $user->folderid;
+		//if(!$parentid)
+		//	$parentid = $user->folderid;
 
-		$fileid = getparam('fileid');
-		$file = getdbo('VFile', $fileid);
+		//$fileid = getparam('fileid');
+		//$file = getdbo('VFile', $fileid);
 
-		if(!$file)
-		{
-			$file = safeCreateFile($name, $parentid, '.flv', $masterid);
-		}
+		//if(!$file)
+		//{
+		//	$file = safeCreateFile($name, $parentid, '.flv', $masterid);
+		//}
 
-		else
-		{
-			if(!controller()->rbac->objectAction($file, 'edit'))
-				return;
+		//else
+		//{
+			//if(!controller()->rbac->objectAction($file, 'edit'))
+			//	return;
 				
-			$file->name = $name;
-			$file->parentid = $parentid;
-			$file->originalid = $masterid;
-			$file->updated = now();
-			$file->update();
+			//$file->name = $name;
+			//$file->parentid = $parentid;
+			//$file->originalid = $masterid;
+			//$file->updated = now();
+			//$file->update();
 			
-			$indexname = objectPathnameIndex($file);
-			@unlink($indexname);
+			//$indexname = objectPathnameIndex($file);
+			//@unlink($indexname);
 			
-			$thumbnailpath = objectPathnameThumbnail($file);
-			delete_folder($thumbnailpath);
-		}
+			//$thumbnailpath = objectPathnameThumbnail($file);
+			//delete_folder($thumbnailpath);
+		//}
 
-		$filename = objectPathname($file);
-		$fileindex = objectPathnameIndex($file);
+		//$filename = objectPathname($file);
+		//$fileindex = objectPathnameIndex($file);
 		
-		@unlink($filename);
-		@unlink($fileindex);
+		//@unlink($filename);
+		//@unlink($fileindex);
 		
-		$inname = SANSSPACE_TEMP."/phpsessid=$phpsessid.flv";
-		debuglog("copy $inname, $filename");
-		@copy($inname, $filename);
+		//$inname = SANSSPACE_TEMP."/phpsessid=$phpsessid.flv";
+		//debuglog("copy $inname, $filename");
+		//@copy($inname, $filename);
 
-		$file = scanFile($file);
+		//$file = scanFile($file);
 		
-		dborun("update RecordSession set fileid=$file->id 
-			where sessionid=$session->id and fileid=0 and userid=$user->id");
+		//dborun("update RecordSession set fileid=$file->id 
+		//	where sessionid=$session->id and fileid=0 and userid=$user->id");
 
-		header("Content-Type: text/xml");
-		header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
-		header('Pragma: no-cache');
+		//header("Content-Type: text/xml");
+		//header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
+		//header('Pragma: no-cache');
 
-		echo "<?xml version='1.0' encoding='utf-8' ?>";
-		echo "<objects>";
-		echo File2Xml($file);
-		echo "</objects>";
+		//echo "<objects>";
+		//echo File2Xml($file);
+		//echo "</objects>";
 	}
 
 	public function actionInternalSavechat()

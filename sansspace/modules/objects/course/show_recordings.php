@@ -10,7 +10,8 @@ showObjectMenu($object);
 echo processDoctext($object, $object->ext->doctext);
 
 $course = getContextCourse();
-$list = getdbolist('Object', "parentList like '%, {$course->recording->id}, %' and name='$object->name'");
+$name = str_replace("'", "\'", $object->name);
+$list = getdbolist('Object', "parentList like '%, {$course->recording->id}, %' and name='$name'");
 
 foreach($list as $o)
 {

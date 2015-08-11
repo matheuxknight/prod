@@ -102,7 +102,8 @@ function userRecordingFolder($object, $user=null, $courseid=0)
 	
 	if($object->type != CMDB_OBJECTTYPE_COURSE)
 	{
-		$folder2 = getdbosql('Object', "parentid=$folder->id and name='$object->name'");
+		$name = str_replace("'", "\'", $object->name);
+		$folder2 = getdbosql('Object', "parentid=$folder->id and name='$name'");
 		if(!$folder2)
 		{
 			$folder2 = objectCreate($object->name, $folder->id);

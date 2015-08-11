@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Created by alex on 7/9/15.
  */
 
@@ -74,6 +74,15 @@ var AudioReview = {
 
     _renderComments: function () {
         this.$el.find('.comments-wrapper').empty();
+
+        // Sort them first
+        this._comments.sort(function (a, b) {
+            if (a.marktime < b.marktime)
+                return -1;
+            if (a.marktime > b.marktime)
+                return 1;
+            return 0;
+        });
 
         for (var i = 0; i < this._comments.length; i++) {
             var comment = this._comments[i]; // shortcut
@@ -191,7 +200,7 @@ var AudioReview = {
     },
 
 
-    _jumpToComment: function(index) {
+    _jumpToComment: function (index) {
         this.$el.find('audio').get(0).currentTime = this._comments[index].marktime;
     },
 

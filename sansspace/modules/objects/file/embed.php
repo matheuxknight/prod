@@ -99,17 +99,28 @@ else{
 		padding: 0;
 		margin-top:5px;
 	}
-	</style></head><body>
-	<video controls>";
+	</style></head><body>";
 	if($fileName[1] == "mp4"){
-		echo "<source src='/contents/";echo $fileName[0];echo ".mp4' type='video/mp4'>";}
+		echo "<video controls><source src='/contents/";echo $fileName[0];echo ".mp4' type='video/mp4'></video>";}
 	if($fileName[1] == "mp3"){
-		echo "<source src='/contents/";echo $fileName[0];echo ".mp3' type='audio/mp3'>";}
+		echo "<audio controls><source src='/contents/";echo $fileName[0];echo ".mp3' type='audio/mp3'></audio>";}
 	if($fileName[1] == null){
-		echo "<source src='/contents/";echo $fileName[0];echo ".mp4' type='video/mp4'>";
-		echo "<source src='/contents/";echo $fileName[0];echo ".mp3' type='audio/mp3'>";
-	}
-	echo "Your browser does not support the video tag.
-	</video>	
-	</body>";
+		$files = getdbolist('File');
+		foreach($files as $file){
+			if($fileName[0] == $file->objectid){
+				switch($file->mimetype){
+					case "audio/mpeg":
+						echo "<audio controls><source src='/contents/";echo $fileName[0];echo ".mp3' type='audio/mp3'></audio>";
+						break;
+					case "video/mp4":
+						echo "<video controls><source src='/contents/";echo $fileName[0];echo ".mp4' type='video/mp4'></video>";
+						break;
+					case "image/png":
+						echo "<img src='/contents/";echo $fileName[0];echo ".png' />";
+						break;
+				}		
+			}
+		}
+	}	
+	echo "</body>";
 }
